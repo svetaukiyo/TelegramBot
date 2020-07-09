@@ -27,7 +27,7 @@ public class CountryServiceImpl implements CountryService {
     public Optional<Country> findById(Long id) {
         Optional<Country> country = countryRepository.findById(id);
         if (country.isEmpty()) {
-            throw new DataNotFoundException("Country with ID " + id + " is doesn't exists");
+            throw new DataNotFoundException("City with ID " + id + " is doesn't exists");
         }
         return country;
     }
@@ -40,7 +40,7 @@ public class CountryServiceImpl implements CountryService {
     @Override
     public Country update(Country country) {
         if (countryRepository.exists(Example.of(country))) {
-            throw new SaveException("Country " + country.getName() + "not found");
+            throw new SaveException("City " + country.getName() + "not found");
         }
         return countryRepository.save(country);
     }
@@ -58,7 +58,7 @@ public class CountryServiceImpl implements CountryService {
     @Override
     public void delete(Long id) {
         if (id == null) {
-            throw new DeleteException("Country with ID " + id + " not found");
+            throw new DeleteException("City with ID " + id + " not found");
         }
         countryRepository.deleteById(id);
     }
