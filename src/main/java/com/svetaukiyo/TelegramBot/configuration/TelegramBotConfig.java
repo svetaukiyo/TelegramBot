@@ -1,5 +1,6 @@
-package com.svetaukiyo.TelegramBot;
+package com.svetaukiyo.TelegramBot.configuration;
 
+import com.svetaukiyo.TelegramBot.TelegramBot;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;

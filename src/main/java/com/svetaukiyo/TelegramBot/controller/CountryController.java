@@ -12,6 +12,7 @@ import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class CountryController {
@@ -33,8 +34,11 @@ public class CountryController {
     }
 
     @GetMapping("/all")
-    public List<Country> getAll() {
-        return countryService.getAll();
+    public List<CountryDto> getAll() {
+        return countryService.getAll()
+                .stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/name/{name}")
